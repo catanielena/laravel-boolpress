@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 //Rotte pubbliche
 Route::get('/', 'PageController@index');
-
 //Rotte Autenticazione
 Auth::routes();
 
@@ -24,6 +23,7 @@ Route::middleware('auth')
 ->name('admin')
 ->prefix('admin')
 ->group(function() {
-        Route::get('/home', 'HomeController@index')
-        ->name('home');
+    Route::get('/home', 'HomeController@index')
+    ->name('home');
+    Route::resource('posts', 'PostController');
     });
