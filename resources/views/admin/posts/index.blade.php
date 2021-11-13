@@ -16,6 +16,7 @@
                             <th scope="col">Slug</th>
                             <th scope="col">Content</th>
                             <th scope="col">Author</th>
+                            <th scope="col">Action</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -26,10 +27,15 @@
                               <td>{{$post->slug}}</td>
                               <td>{{$post->content}}</td>
                               <td>{{$post->author_lastName}} {{$post->author_firstName}}</td>
-                              <td>
+                              <td class="d-flex">
                                   <a href="{{route('adminposts.show', $post->id)}}">
-                                        <button type="button" class="btn btn-light">View</button>
+                                      <button type="button" class="btn btn-light">View</button>
                                   </a>
+                                    <form action="{{route('adminposts.destroy', $post->id)}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">Danger</button>
+                                    </form>
                               </td>
                             </tr>
                             @endforeach
