@@ -1,0 +1,14 @@
+footer {
+    padding: .5rem;
+    font-size: 1rem;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    .logo__img {
+        width: 10rem;
+
+        img {
+            width: 100%;
+        }
+    }
+}

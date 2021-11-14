@@ -1,0 +1,21 @@
+// font
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+body, pre {
+    // font-family: 'Inconsolata', monospace;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    background-color: darkolivegreen;
+    color: #000;
+}
+
+a {
+    color: #000;
+    &:hover {
+        color: blue;
+    }
+}
+
+ul {
+    list-style: none;
+}

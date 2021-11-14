@@ -1,0 +1,137 @@
+main {
+    
+    &::before {
+        content: '';
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        overflow: hidden;
+        position: fixed;
+        display: inline-block;
+        background-image: url('../images/windows-bg-000.png');
+        opacity: 0.3;
+        z-index: -1;
+        
+    }
+    
+    aside {
+        border-right: .625rem solid #000;
+        padding: .5rem;
+        position: fixed;
+        right: 0;
+        width: 30%;
+        top: 5rem;
+        p, a {
+            font-size: 1rem;
+        }
+        .archives, .elsewhere {
+            text-align: right;
+        }
+        .archives {
+            font-size: 1rem;
+
+            a {
+                text-decoration: underline;
+            }
+        }
+
+        .elsewhere {
+
+            li {
+                margin-bottom: .3rem;
+            }
+
+            a {
+                padding: .3rem;
+                border: .09375rem solid #000;
+            }
+        }
+    }
+
+    .posts {
+        .posts__list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: .5rem;
+            width: 70%;
+
+            .item__card {
+                position: relative;
+                margin: 5rem 0;
+                .card__img {
+                    width: 40%;
+                    position: relative;
+                    img {
+                        width: 100%;
+                    }
+                    svg path{
+                        width: 100%;
+                    }
+                    svg {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                    }
+                }
+    
+                h2 {
+                    position: absolute;
+                    top: 10%;
+                    text-align: center;
+                    font-size: 3rem;
+                    font-family: 'Inconsolata', monospace;
+                    color: red;
+                    mix-blend-mode: difference;
+                }
+            }
+
+
+            p {
+                font-size: .8rem;
+                padding: .2rem;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;  
+                overflow: hidden;
+                border: .09375rem solid #000000;
+                border-left: .625rem solid #000;
+            }
+
+            a {
+                text-decoration: underline;
+                color: pink;
+            }
+
+            .author-link {
+                font-family: 'Inconsolata', monospace;
+            }
+
+            ._btn {
+                padding: .3rem;
+                border: .09375rem solid #000;
+                text-decoration: none;
+                color: #000;
+            }
+        }
+    }
+
+    .post {
+        padding: 4rem .5rem;
+        width: 80%;
+        display: flex;
+        align-items: right;
+        flex-direction: column;
+        color: red;
+        mix-blend-mode: difference;
+        h1 {
+            font-family: 'Inconsolata', monospace;
+            font-size: 4rem;
+        }
+
+        a {
+            color: red;
+            font-family: 'Inconsolata', monospace;
+            text-decoration: underline;
+        }
+    }
+}
