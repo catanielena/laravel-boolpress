@@ -48,15 +48,7 @@ class PostController extends Controller
         $request->validate($this->validationRules);
         $newPost = new Post();
         $newPost->fill($request->all());
-        $slug = Str::of($request->title)->slug('-');
-        $postExist = Post::where('slug', $slug)->first();
-        $i = 2;
-        while( $postExist ) {
-            $slug = Str::of($request->title)->slug('-') . "-{$i}";
-            $postExist = Post::where('slug', $slug)->first();
-            $i++;
-        }
-        $newPost->slug = $slug;
+        $newPost->slug = $this->getSlug($request->title);
         $newPost->save();
         return redirect()->route('admin.posts.index')->with('success','Post created successfully');
     }
@@ -96,16 +88,8 @@ class PostController extends Controller
         $post = new Post();
         if($post->title !== $request->title) {
             
-            $slug = Str::of($request->title)->slug('-');
-            $postExist = Post::where('slug', $slug)->first();
-            $i = 2;
-            while( $postExist ) {
-                $slug = Str::of($request->title)->slug('-') . "-{$i}";
-                $postExist = Post::where('slug', $slug)->first();
-                $i++;
-            }
+            $post->slug = $this->getSlug($request->title);
         }
-        $post->slug = $slug;
         $post->fill($request->all());
         $post->save();
         return redirect()->route('admin.posts.show', $post->id);
@@ -121,5 +105,23 @@ class PostController extends Controller
     {
         $post->delete();
         return redirect()->route('admin.posts.index')->with('success', 'The post has been successfully deleted');
+    }
+    /**
+     * getSlug
+     *
+     * @param  string  $title
+     */
+    private function getSlug($title)
+    {
+        $slug = Str::of($title)->slug('-');
+        $postExist = Post::where('slug', $slug)->first();
+        $i = 2;
+        while( $postExist ) {
+            $slug = Str::of($title)->slug('-') . "-{$i}";
+            $postExist = Post::where('slug', $slug)->first();
+            $i++;
+        }
+
+        return $slug;
     }
 }
