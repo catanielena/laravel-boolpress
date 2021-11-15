@@ -11,15 +11,14 @@
                         @csrf
                         <div class="form-group">
                           <label for="title">Title</label>
-                          <input type="text" class="form-control" id="title" placeholder="Enter title" name="title">
+                          <input type="text" class="form-control" id="title" placeholder="Enter title" name="title" value="{{old('title')}}">
                             @error('title')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="form-group">
                             <label for="content">Content</label>
-                            <textarea class="form-control" id="content" rows="10" placeholder="Post content" name="content"></textarea>
-                            <small id="content" class="form-text text-muted">This field cannot be empty</small>
+                            <textarea class="form-control" id="content" rows="10" placeholder="Post content" name="content">{{old('content')}}</textarea>
                             @error('content')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -27,14 +26,14 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                               <label for="author_firstName">Name</label>
-                              <input type="text" class="form-control" id="author_firstName" placeholder="Name" name="author_firstName">
+                              <input type="text" class="form-control" id="author_firstName" placeholder="Name" name="author_firstName" value="{{old('author_firstName')}}">
                                 @error('author_firstName')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="author_lastName">Lastname</label>
-                                <input type="text" class="form-control" id="author_lastName" placeholder="Lastname" name="author_lastName">
+                                <input type="text" class="form-control" id="author_lastName" placeholder="Lastname" name="author_lastName" value="{{old('author_lastName')}}">
                                 @error('author_firstName')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror

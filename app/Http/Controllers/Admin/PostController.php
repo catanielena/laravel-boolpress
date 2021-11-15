@@ -90,9 +90,25 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        $request->validate($this->validationRules);
+        $post = new Post();
+        if($post->title !== $request->title) {
+            
+            $slug = Str::of($request->title)->slug('-');
+            $postExist = Post::where('slug', $slug)->first();
+            $i = 2;
+            while( $postExist ) {
+                $slug = Str::of($request->title)->slug('-') . "-{$i}";
+                $postExist = Post::where('slug', $slug)->first();
+                $i++;
+            }
+        }
+        $post->slug = $slug;
+        $post->fill($request->all());
+        $post->save();
+        return redirect()->route('admin.posts.show', $post->id);
     }
 
     /**
