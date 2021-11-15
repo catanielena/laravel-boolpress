@@ -48,6 +48,15 @@
                             <a href="#">(Travel)</a> 
                         </li>
                    </ul>
+                   <ul class="nav__user">
+                       <li>
+                           <a href="{{route('login')}}">LOGIN</a>
+                       </li>
+                       <li>
+                           <a href="{{route('register')}}">REGISTER</a>
+                       </li>
+                   </ul>
+
                </nav>
         </header>
         <main>

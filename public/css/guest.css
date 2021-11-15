@@ -43,6 +43,16 @@ header nav a {
 header nav a:hover {
   color: #000;
 }
+header nav .nav__user {
+  padding: 1.3rem 0;
+  justify-content: flex-end;
+}
+header nav .nav__user a {
+  background-color: #3d7296;
+  text-decoration: none;
+  font-family: "Inconsolata", monospace;
+  font-size: 1.3rem;
+}
 
 main::before {
   content: "";

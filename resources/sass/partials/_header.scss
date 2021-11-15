@@ -18,5 +18,17 @@ header {
                 color: #000;
             }
         }
+
+        .nav__user {
+            padding: $gt 0;
+            justify-content: flex-end;
+
+            a {
+                background-color: rgb(61, 114, 150);
+                text-decoration: none;
+                font-family: 'Inconsolata', monospace;
+                font-size: 1.3rem;
+            }
+        }
     }
 }
