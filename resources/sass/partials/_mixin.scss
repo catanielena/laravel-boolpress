@@ -1,0 +1,80 @@
+// Flex
+// 
+// 
+// --flex-center-between
+@mixin flex--SB-C{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+// --flex-apce-around
+@mixin flex--SA-C{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+// --flex-start-center
+@mixin flex--ST-C{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+// --fex-start-start
+@mixin flex--ST-ST{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+// --flex-x-center
+@mixin flex--x-C{
+    display: flex;
+    align-items: center;
+}
+// --flex-x-center
+@mixin flex--C-C{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+// 
+// 
+// Images
+// 
+// 
+// --background image
+@mixin bgImg--Top($pathImg) {
+    background-image: url($pathImg);
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@mixin bgImg--Center($pathImg) {
+    background-image: url($pathImg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+// --object fit
+@mixin objFit--C-T {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+// 
+// 
+// InlineList
+// 
+//
+@mixin inlineList {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}

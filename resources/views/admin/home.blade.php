@@ -13,7 +13,10 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <a href="{{ route('adminposts.index')}}">View all posts</a>
+                    <a href="{{route('admin.posts.create')}}" class="mt-10">
+                        <button type="button" class="btn btn-primary">New post</button>
+                    </a>
+                    <a href="{{ route('admin.posts.index')}}">View all posts</a>
                 </div>
             </div>
         </div>

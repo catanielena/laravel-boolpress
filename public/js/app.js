@@ -37328,16 +37328,29 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/sass/guest.scss":
+/*!***********************************!*\
+  !*** ./resources/sass/guest.scss ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
-/*!****************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./src/app.scss ***!
-  \****************************************************************************/
+/*!*************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/guest.scss ./src/app.scss ./src/guest.scss ***!
+  \*************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! D:\boolean\Esercizi\12-11-21 laravel-boolpress\laravel-boolpress\resources\js\app.js */"./resources/js/app.js");
 __webpack_require__(/*! D:\boolean\Esercizi\12-11-21 laravel-boolpress\laravel-boolpress\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\boolean\Esercizi\12-11-21 laravel-boolpress\laravel-boolpress\resources\sass\guest.scss */"./resources/sass/guest.scss");
 !(function webpackMissingModule() { var e = new Error("Cannot find module 'D:\\boolean\\Esercizi\\12-11-21 laravel-boolpress\\laravel-boolpress\\src\\app.scss'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+!(function webpackMissingModule() { var e = new Error("Cannot find module 'D:\\boolean\\Esercizi\\12-11-21 laravel-boolpress\\laravel-boolpress\\src\\guest.scss'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 
 
 /***/ })

@@ -1,6 +1,11 @@
 @extends('layouts.guests')
 
 @section('pageContent')
+    <div class="hero">
+        <div class="hero__img">
+            <h1>Lorem ipsum dolor, <br> sit amet consectetur adipisicing elit</h1>
+        </div>
+    </div>
     <div class="posts">
         <ul class="posts__list">
             @foreach ($posts as $post)               
@@ -11,7 +16,7 @@
                         <svg version="1.1" id="Livello_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                             viewBox="0 0 767.94 1080" style="enable-background:new 0 0 767.94 1080;" xml:space="preserve">
                         <style type="text/css">
-                            .st0{fill:#3d5e5b;}
+                            .st0{fill:rgb(255, 255, 255);}
                         </style>
                         <g>
                             <ellipse class="st0" cx="383.97" cy="540" rx="15.56" ry="57.64"/>

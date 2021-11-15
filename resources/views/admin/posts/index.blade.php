@@ -5,8 +5,12 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    {{ __('Dashboard') }}
+                    <a href="{{route('admin.posts.create')}}" class="mt-10">
+                        <button type="button" class="btn btn-primary">New post</button>
+                    </a>
+                </div>
                 <div class="card-body">
                     @if ($message = Session::get('success'))
                     <div class="alert alert-success alert-block">
@@ -34,13 +38,16 @@
                               <td>{{$post->content}}</td>
                               <td>{{$post->author_lastName}} {{$post->author_firstName}}</td>
                               <td class="d-flex">
-                                  <a href="{{route('adminposts.show', $post->id)}}">
-                                      <button type="button" class="btn btn-light">View</button>
-                                  </a>
-                                    <form action="{{route('adminposts.destroy', $post->id)}}" method="POST">
+                                    <a href="{{route('admin.posts.show', $post->id)}}" class="ml-1">
+                                        <button type="button" class="btn btn-light">View</button>
+                                    </a>
+                                    <a href="{{route('admin.posts.edit', $post->id)}}" class="ml-1">
+                                        <button type="button" class="btn btn-primary">Edit</button>
+                                    </a>
+                                    <form action="{{route('admin.posts.destroy', $post->id)}}" method="POST" class="ml-1">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">Danger</button>
+                                        <button type="submit" class="btn btn-danger">Delete</button>
                                     </form>
                               </td>
                             </tr>

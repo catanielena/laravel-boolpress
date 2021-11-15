@@ -16,7 +16,7 @@ main {
     
     aside {
         border-right: .625rem solid #000;
-        padding: .5rem;
+        padding: $gt--sm;
         position: fixed;
         right: 0;
         width: 30%;
@@ -28,13 +28,17 @@ main {
             text-align: right;
         }
         .archives {
-            font-size: 1rem;
+            font-size: 1.5rem;
 
-            a {
-                text-decoration: underline;
+        }
+        
+        a {
+            text-decoration: underline;
+
+            &:hover {
+                color: #fff;
             }
         }
-
         .elsewhere {
 
             li {
@@ -48,11 +52,29 @@ main {
         }
     }
 
+    .hero {
+        background-image: url('https://awkwardfamilyphotos.com/wp-content/uploads/2011/09/Screen-Shot-2019-12-20-at-5.33.32-PM.jpg');
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 100vh;
+        z-index: 3;
+        h1 {
+            font-family: 'Inconsolata', monospace;
+            // text-transform: uppercase;
+            font-size: 8rem;
+            color: yellow;
+            padding: 5rem;
+            mix-blend-mode: luminosity;
+        }
+    }
+
     .posts {
+        padding: 5rem $gt--sm;
         .posts__list {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            column-gap: .5rem;
+            column-gap: $gt--sm;
             width: 70%;
 
             .item__card {
@@ -80,7 +102,7 @@ main {
                     text-align: center;
                     font-size: 3rem;
                     font-family: 'Inconsolata', monospace;
-                    color: red;
+                    color: #fff;
                     mix-blend-mode: difference;
                 }
             }
@@ -121,17 +143,22 @@ main {
         display: flex;
         align-items: right;
         flex-direction: column;
-        color: red;
-        mix-blend-mode: difference;
+        color: #fff;
+        
+        &>*:not(img) {
+            mix-blend-mode: difference;
+        }
+
         h1 {
             font-family: 'Inconsolata', monospace;
             font-size: 4rem;
         }
 
         a {
-            color: red;
+            color: #fff;
             font-family: 'Inconsolata', monospace;
             text-decoration: underline;
         }
+
     }
 }

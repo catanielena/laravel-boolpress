@@ -4,14 +4,19 @@ header {
     width: 100%;
     z-index: 10;
     nav {        
+        padding: .2rem 0;
+
         ul {
-            display: flex;
-            justify-content: space-between;
-            list-style: none;
+            @include flex--SB-C;
         }
 
         a {
-            padding: .5rem;
+            padding: $gt--sm;
+            color: #fff;
+
+            &:hover {
+                color: #000;
+            }
         }
     }
 }

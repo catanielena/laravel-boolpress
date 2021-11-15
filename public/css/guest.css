@@ -1,0 +1,198 @@
+@import url(https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap);* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.1rem;
+  background-color: #3d7296;
+  color: #000;
+}
+
+a {
+  color: #000;
+}
+a:hover {
+  color: blue;
+}
+
+ul {
+  list-style: none;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+header nav {
+  padding: 0.2rem 0;
+}
+header nav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header nav a {
+  padding: 0.5rem;
+  color: #fff;
+}
+header nav a:hover {
+  color: #000;
+}
+
+main::before {
+  content: "";
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  overflow: hidden;
+  position: fixed;
+  display: inline-block;
+  background-image: url("../images/windows-bg-000.png");
+  opacity: 0.3;
+  z-index: -1;
+}
+main aside {
+  border-right: 0.625rem solid #000;
+  padding: 0.5rem;
+  position: fixed;
+  right: 0;
+  width: 30%;
+  top: 5rem;
+}
+main aside p, main aside a {
+  font-size: 1rem;
+}
+main aside .archives, main aside .elsewhere {
+  text-align: right;
+}
+main aside .archives {
+  font-size: 1.5rem;
+}
+main aside a {
+  text-decoration: underline;
+}
+main aside a:hover {
+  color: #fff;
+}
+main aside .elsewhere li {
+  margin-bottom: 0.3rem;
+}
+main aside .elsewhere a {
+  padding: 0.3rem;
+  border: 0.09375rem solid #000;
+}
+main .hero {
+  background-image: url("https://awkwardfamilyphotos.com/wp-content/uploads/2011/09/Screen-Shot-2019-12-20-at-5.33.32-PM.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+  z-index: 3;
+}
+main .hero h1 {
+  font-family: "Inconsolata", monospace;
+  font-size: 8rem;
+  color: yellow;
+  padding: 5rem;
+  mix-blend-mode: luminosity;
+}
+main .posts {
+  padding: 5rem 0.5rem;
+}
+main .posts .posts__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  -moz-column-gap: 0.5rem;
+       column-gap: 0.5rem;
+  width: 70%;
+}
+main .posts .posts__list .item__card {
+  position: relative;
+  margin: 5rem 0;
+}
+main .posts .posts__list .item__card .card__img {
+  width: 40%;
+  position: relative;
+}
+main .posts .posts__list .item__card .card__img img {
+  width: 100%;
+}
+main .posts .posts__list .item__card .card__img svg path {
+  width: 100%;
+}
+main .posts .posts__list .item__card .card__img svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+main .posts .posts__list .item__card h2 {
+  position: absolute;
+  top: 10%;
+  text-align: center;
+  font-size: 3rem;
+  font-family: "Inconsolata", monospace;
+  color: #fff;
+  mix-blend-mode: difference;
+}
+main .posts .posts__list p {
+  font-size: 0.8rem;
+  padding: 0.2rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  border: 0.09375rem solid #000000;
+  border-left: 0.625rem solid #000;
+}
+main .posts .posts__list a {
+  text-decoration: underline;
+  color: pink;
+}
+main .posts .posts__list .author-link {
+  font-family: "Inconsolata", monospace;
+}
+main .posts .posts__list ._btn {
+  padding: 0.3rem;
+  border: 0.09375rem solid #000;
+  text-decoration: none;
+  color: #000;
+}
+main .post {
+  padding: 4rem 0.5rem;
+  width: 80%;
+  display: flex;
+  align-items: right;
+  flex-direction: column;
+  color: #fff;
+}
+main .post > *:not(img) {
+  mix-blend-mode: difference;
+}
+main .post h1 {
+  font-family: "Inconsolata", monospace;
+  font-size: 4rem;
+}
+main .post a {
+  color: #fff;
+  font-family: "Inconsolata", monospace;
+  text-decoration: underline;
+}
+
+footer {
+  padding: 0.5rem;
+  font-size: 1rem;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+footer .logo__img {
+  width: 10rem;
+}
+footer .logo__img img {
+  width: 100%;
+}
