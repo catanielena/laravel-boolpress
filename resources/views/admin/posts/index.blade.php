@@ -44,11 +44,14 @@
                                     <a href="{{route('admin.posts.edit', $post->id)}}" class="ml-1">
                                         <button type="button" class="btn btn-primary">Edit</button>
                                     </a>
-                                    <form action="{{route('admin.posts.destroy', $post->id)}}" method="POST" class="ml-1">
+                                    {{-- <form action="{{route('admin.posts.destroy', $post->id)}}" method="POST" class="ml-1">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Delete</button>
-                                    </form>
+                                    </form> --}}
+                                    <button type="button" class="btn btn-danger ml-1 btn-delete" data-toggle="modal" data-target="#deleteModal" data-id="{{$post->id}}">
+                                        Delete
+                                    </button>
                               </td>
                             </tr>
                             @endforeach
@@ -57,6 +60,32 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Confirm post deletion</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="{{route('admin.posts.destroy', 'id')}}" method="POST" class="ml-1">
+            @csrf
+            @method('DELETE')
+            <input type="hidden" id="delete-id" name="id">
+            <div class="modal-body">
+                Are you sure you want to delete this post?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+              <button type="submit" class="btn btn-primary">Delete</button>
+            </div>
+        </form>
+      </div>
     </div>
 </div>
 @endsection
