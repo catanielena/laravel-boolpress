@@ -85,9 +85,10 @@ main {
                 position: relative;
                 margin: 5rem 0;
                 .card__img {
-                    width: 40%;
-                    height: 9.375rem;
+                    width: 5.6875rem;
+                    height: 8rem;
                     position: relative;
+                    overflow: hidden;
                     img {
                         @include objFit--C-T;
                     }
@@ -96,6 +97,7 @@ main {
                     }
                     svg {
                         position: absolute;
+                        height: 100%;
                         top: 0;
                         left: 0;
                     }
@@ -114,6 +116,10 @@ main {
 
             .card__info {
                 font-size: 1rem;
+            }
+
+            .card__btn {
+                text-align: right;
             }
 
 
@@ -169,5 +175,70 @@ main {
             text-decoration: underline;
         }
 
+    }
+}
+
+@media screen and (max-width: 768px) {
+    main {
+        aside {
+            width: 40%;
+            top: 7rem;
+            p, a {
+                font-size: .6rem;
+            }
+            .archives {
+                font-size: 1rem;
+    
+            }
+
+            .elsewhere {
+
+                li {
+                    margin: .5rem 0;
+                }
+            }
+
+            h3 {
+                font-size: .7rem;
+            }
+        }   
+
+        .post {
+            padding: 6rem .5rem;
+    
+            h1 {
+                font-size: 3rem;
+            }    
+        }
+
+        .hero { 
+            h1 {
+                font-size: 3rem;
+                padding: 7rem 2rem;
+            }
+        }
+
+        .posts {
+            padding: 4rem $gt--sm;
+            .posts__list {
+                grid-template-columns: 1fr;
+                .item__card {
+                    margin: 3rem 0;
+        
+                    h2 {
+                        font-size: 2rem;
+                    }
+                }
+    
+                .card__info {
+                    font-size: 1rem;
+                }
+    
+    
+                p {
+                    font-size: .7rem;
+                }
+            }
+        }
     }
 }

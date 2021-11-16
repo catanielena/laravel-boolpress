@@ -1,18 +1,20 @@
 header {
     position: fixed;
     top: 0;
-    width: 100%;
     z-index: 10;
+    width: 100%;
     nav {        
         padding: .2rem 0;
 
         ul {
             @include flex--SB-C;
+            flex-wrap: wrap;
         }
 
         a {
             padding: $gt--sm;
             color: #fff;
+            margin-bottom: $gt;
 
             &:hover {
                 color: #000;
@@ -27,6 +29,21 @@ header {
                 text-decoration: none;
                 font-family: 'Inconsolata', monospace;
                 font-size: 1.3rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        nav {
+
+            .nav__user { 
+                padding: .1rem 0;
+    
+                a {
+                    font-size: 1rem;
+                }
             }
         }
     }

@@ -12,3 +12,16 @@ footer {
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+    footer {
+        font-size: .7rem;
+        .logo__img {
+            width: 5rem;
+    
+            img {
+                width: 100%;
+            }
+        }
+    }
+}

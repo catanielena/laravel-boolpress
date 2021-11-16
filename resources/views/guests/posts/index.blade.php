@@ -38,8 +38,10 @@
                     <h2>{{$post->title}}</h2>
                 </div>
                 <p>{{$post->content}}</p>
+                <div class="card__btn">
+                    <a href="{{route('posts.show', $post->slug)}}" class="_btn">more ...</a>
+                </div>
                 <span class="card__info">{{$post->created_at->diffForHumans()}} <a href="#" class="author-link">{{$post->author_firstName}} {{$post->author_lastName}}</a></span>
-                <a href="{{route('posts.show', $post->slug)}}" class="_btn">more ...</a>
             </li>
             @endforeach
         </ul>
