@@ -20,6 +20,7 @@ class CreatePostsTable extends Migration
             $table->text('content');
             $table->string('author_firstName', 50);
             $table->string('author_lastName', 50);
+            $table->string('image');
             $table->timestamps();
         });
     }

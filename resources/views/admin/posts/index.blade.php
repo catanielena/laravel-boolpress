@@ -26,6 +26,7 @@
                             <th scope="col">Slug</th>
                             <th scope="col">Content</th>
                             <th scope="col">Author</th>
+                            <th scope="col">Image</th>
                             <th scope="col">Action</th>
                           </tr>
                         </thead>
@@ -37,6 +38,7 @@
                               <td>{{$post->slug}}</td>
                               <td>{{$post->content}}</td>
                               <td>{{$post->author_lastName}} {{$post->author_firstName}}</td>
+                              <td>{{$post->image}}</td>
                               <td class="d-flex">
                                     <a href="{{route('admin.posts.show', $post->id)}}" class="ml-1">
                                         <button type="button" class="btn btn-light">View</button>

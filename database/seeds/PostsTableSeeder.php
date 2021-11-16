@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
+use Faker\Provider\Base as BaseProvider;
 use App\Post;
 use Illuminate\Support\Str;
 class PostsTableSeeder extends Seeder
@@ -20,6 +21,7 @@ class PostsTableSeeder extends Seeder
             $newPost->content = $faker->text(1000);
             $newPost->author_firstName = $faker->firstName();
             $newPost->author_lastName = $faker->lastName();
+            $newPost->image = 'https://source.unsplash.com/random/900x700?sig=' . rand();  
             $newPost->save();
         }
     }

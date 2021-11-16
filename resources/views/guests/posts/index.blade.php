@@ -3,7 +3,8 @@
 @section('pageContent')
     <div class="hero">
         <div class="hero__img">
-            <h1>Lorem ipsum dolor, <br> sit amet consectetur adipisicing elit</h1>
+            <h1>{{$posts[rand(0, count($posts) - 1)]->title}}</h1>
+            <img src="{{$posts[rand(0, count($posts) - 1)]->image}}" alt="hero">
         </div>
     </div>
     <div class="posts">
@@ -12,7 +13,7 @@
             <li class="list__item">
                 <div class="item__card">
                     <div class="card__img">
-                        <img src="https://awkwardfamilyphotos.com/wp-content/uploads/2021/11/Screen-Shot-2021-11-04-at-12.47.39-PM-1.jpg" alt="">
+                        <img src="{{$post->image}}" alt="{{$post->title}}">
                         <svg version="1.1" id="Livello_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                             viewBox="0 0 767.94 1080" style="enable-background:new 0 0 767.94 1080;" xml:space="preserve">
                         <style type="text/css">
@@ -37,7 +38,7 @@
                     <h2>{{$post->title}}</h2>
                 </div>
                 <p>{{$post->content}}</p>
-                <span>{{$post->created_at->diffForHumans()}} <a href="#" class="author-link">{{$post->author_firstName}} {{$post->author_lastName}}</a></span>
+                <span class="card__info">{{$post->created_at->diffForHumans()}} <a href="#" class="author-link">{{$post->author_firstName}} {{$post->author_lastName}}</a></span>
                 <a href="{{route('posts.show', $post->slug)}}" class="_btn">more ...</a>
             </li>
             @endforeach

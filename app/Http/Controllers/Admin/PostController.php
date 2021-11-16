@@ -15,6 +15,7 @@ class PostController extends Controller
         'content' => 'required',
         'author_firstName' => 'required | max:50',
         'author_firstName' => 'required | max:50',
+        'image' => 'required | max:255'
     ];
     /**
      * Display a listing of the resource.

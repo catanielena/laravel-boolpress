@@ -25,6 +25,13 @@
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
+                        <div class="form-group">
+                            <label for="image">Image</label>
+                            <input type="text" class="form-control" id="image" placeholder="Enter image url" name="title" value="{{old('image') ?? $post->image }}">
+                            @error('image')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                               <label for="author_firstName">Name</label>
