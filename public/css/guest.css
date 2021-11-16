@@ -89,7 +89,7 @@ main aside a:hover {
   color: #fff;
 }
 main aside .elsewhere li {
-  margin-bottom: 0.3rem;
+  margin: 1rem 0;
 }
 main aside .elsewhere a {
   padding: 0.3rem;
