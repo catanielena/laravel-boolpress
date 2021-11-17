@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Post;
+use App\Category;
 use Illuminate\Support\Str;
 
 class PostController extends Controller
@@ -15,7 +16,8 @@ class PostController extends Controller
         'content' => 'required',
         'author_firstName' => 'required | max:50',
         'author_firstName' => 'required | max:50',
-        'image' => 'required | max:255'
+        'image' => 'required | max:255',
+        'category_id' => 'nullable | exists:App\Category,id'
     ];
     /**
      * Display a listing of the resource.
@@ -35,7 +37,9 @@ class PostController extends Controller
      */
     public function create(Post $post)
     {
-        return view('admin.posts.create');
+
+        $categories = Category::all();
+        return view('admin.posts.create', compact('categories'));
     }
 
     /**
@@ -73,7 +77,9 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('admin.posts.edit', compact('post'));
+        $categories = Category::all();
+
+        return view('admin.posts.edit', compact('post', 'categories'));
     }
 
     /**
@@ -86,14 +92,14 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         $request->validate($this->validationRules);
-        $post = new Post();
+
         if($post->title !== $request->title) {
             
             $post->slug = $this->getSlug($request->title);
         }
         $post->fill($request->all());
         $post->save();
-        return redirect()->route('admin.posts.show', $post->id);
+        return redirect()->route('admin.posts.index')->with('success', 'The post has been successfully updated');
     }
 
     /**

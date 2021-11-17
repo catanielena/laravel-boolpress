@@ -11,6 +11,22 @@
                         @csrf
                         @method('PUT')
                         <div class="form-group">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <label class="input-group-text" for="category_id">Category</label>
+                                </div>
+                                <select class="custom-select" id="category_id" name="category_id">
+                                    <option value="" disabled>--Choose the category-- </option>
+                                    @foreach ($categories as $category)
+                                    <option {{old('category_id')!== null && old('category_id') == $category->id || isset($post['category']) && $post['category']['id'] == $category->id ? 'selected' : null}} value="{{$category->id}}">{{$category->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            @error('category_id')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
                           <label for="title">Title</label>
                           <input type="text" class="form-control" id="title" placeholder="Enter title" name="title" value="{{old('title') ?? $post->title}}">
                             @error('title')
@@ -27,7 +43,7 @@
                         </div>
                         <div class="form-group">
                             <label for="image">Image</label>
-                            <input type="text" class="form-control" id="image" placeholder="Enter image url" name="title" value="{{old('image') ?? $post->image }}">
+                            <input type="text" class="form-control" id="image" placeholder="Enter image url" name="image" value="{{old('image') ?? $post->image }}">
                             @error('image')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror

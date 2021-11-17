@@ -27,6 +27,7 @@
                             <th scope="col">Content</th>
                             <th scope="col">Author</th>
                             <th scope="col">Image</th>
+                            <th scope="col">Category</th>
                             <th scope="col">Action</th>
                           </tr>
                         </thead>
@@ -36,9 +37,10 @@
                               <th scope="row">{{$post->id}}</th>
                               <td>{{$post->title}}</td>
                               <td>{{$post->slug}}</td>
-                              <td>{{$post->content}}</td>
+                              <td class="td--content">{{$post->content}}</td>
                               <td>{{$post->author_lastName}} {{$post->author_firstName}}</td>
-                              <td>{{$post->image}}</td>
+                              <td class="text-break">{{$post->image}}</td>
+                              <td>{{$post['category']['name'] ?? ''}}</td>
                               <td class="d-flex">
                                     <a href="{{route('admin.posts.show', $post->id)}}" class="ml-1">
                                         <button type="button" class="btn btn-light">View</button>

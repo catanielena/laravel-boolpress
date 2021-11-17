@@ -10,6 +10,22 @@
                     <form action="{{route('admin.posts.store')}}" method="POST">
                         @csrf
                         <div class="form-group">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <label class="input-group-text" for="category_id">Category</label>
+                                </div>
+                                <select class="custom-select" id="category_id" name="category_id">
+                                  <option value="">--Choose the category-- </option>
+                                  @foreach ($categories as $category)
+                                  <option value="{{$category->id}}">{{$category->name}}</option>
+                                  @endforeach
+                                </select>
+                            </div>
+                            @error('image')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
                           <label for="title">Title</label>
                           <input type="text" class="form-control" id="title" placeholder="Enter title" name="title" value="{{old('title')}}">
                             @error('title')
