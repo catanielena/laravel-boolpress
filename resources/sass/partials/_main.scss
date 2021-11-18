@@ -131,21 +131,45 @@ main {
                 border: .09375rem solid #000000;
                 border-left: .625rem solid #000;
             }
+            .card__category {
+                text-align: right;
+            }
 
-            a {
+            .category__link {
+                text-transform: uppercase;
+                text-decoration: none;
+                font-size: 1.2rem;
+
+                &:hover {
+                    color: #fff;
+                }
+            }
+
+            .author-link {
                 text-decoration: underline;
                 color: pink;
             }
 
-            .author-link {
+            a {
                 font-family: 'Inconsolata', monospace;
             }
+            
 
             ._btn {
                 padding: .3rem;
                 border: .09375rem solid #000;
                 text-decoration: none;
                 color: #000;
+            }
+
+            .card__tags {
+                display: flex;
+                flex-wrap: wrap;
+                font-size: 1rem;
+                li {
+                    margin: $gt--sm $gt--sm  $gt--sm 0;
+                    font-family: 'Inconsolata', monospace;
+                }
             }
         }
     }

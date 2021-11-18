@@ -12,6 +12,13 @@
             @foreach ($posts as $post)               
             <li class="list__item">
                 <div class="item__card">
+                    @if ($post['category'])    
+                    <div class="card__category">
+                        <a class="category__link" href="#">
+                            ( {{$post['category']['name']}} )
+                        </a>
+                    </div>
+                    @endif
                     <div class="card__img">
                         <img src="{{$post->image}}" alt="{{$post->title}}">
                         <svg version="1.1" id="Livello_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -42,6 +49,13 @@
                     <a href="{{route('posts.show', $post->slug)}}" class="_btn">more ...</a>
                 </div>
                 <span class="card__info">{{$post->created_at->diffForHumans()}} <a href="#" class="author-link">{{$post->author_firstName}} {{$post->author_lastName}}</a></span>
+                @if (count($post['tags']) > 0)    
+                <ul class="card__tags">
+                    @foreach ($post['tags'] as $tag)
+                        <li>/{{$tag->name}}</li>
+                    @endforeach
+                </ul>
+                @endif
             </li>
             @endforeach
         </ul>

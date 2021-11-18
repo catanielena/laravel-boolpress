@@ -195,11 +195,22 @@ main .posts .posts__list p {
   border: 0.09375rem solid #000000;
   border-left: 0.625rem solid #000;
 }
-main .posts .posts__list a {
+main .posts .posts__list .card__category {
+  text-align: right;
+}
+main .posts .posts__list .category__link {
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+main .posts .posts__list .category__link:hover {
+  color: #fff;
+}
+main .posts .posts__list .author-link {
   text-decoration: underline;
   color: pink;
 }
-main .posts .posts__list .author-link {
+main .posts .posts__list a {
   font-family: "Inconsolata", monospace;
 }
 main .posts .posts__list ._btn {
@@ -207,6 +218,15 @@ main .posts .posts__list ._btn {
   border: 0.09375rem solid #000;
   text-decoration: none;
   color: #000;
+}
+main .posts .posts__list .card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 1rem;
+}
+main .posts .posts__list .card__tags li {
+  margin: 0.5rem 0.5rem 0.5rem 0;
+  font-family: "Inconsolata", monospace;
 }
 main .post {
   padding: 4rem 0.5rem;
