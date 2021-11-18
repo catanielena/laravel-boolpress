@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Add a new post</div>
+                <div class="card-header">Edit the post <strong>#{{$post->id}}</strong></div>
                 <div class="card-body">
                     <form action="{{route('admin.posts.update', $post->id)}}" method="POST">
                         @csrf
@@ -84,7 +84,7 @@
                               <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
-                        <button type="submit" class="btn btn-primary">Edit</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
                       </form>
                 </div>
             </div>

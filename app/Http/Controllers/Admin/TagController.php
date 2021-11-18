@@ -5,9 +5,13 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class TagController extends Controller
 {
+    protected $validationRules = [
+        'name' => 'required | max:50 | unique'
+    ];
     /**
      * Display a listing of the resource.
      *
@@ -25,7 +29,7 @@ class TagController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.tags.create');
     }
 
     /**
@@ -36,7 +40,13 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([$this->validationRules]);
+        $newTag = new Tag();
+        $newTag->fill($request->all());
+        $newTag->slug = Str::of($request->name)->slug('-');
+        $newTag->save();
+        return redirect()->route('admin.posts.index')->with('success', "{$newTag->name} tag created successfully");
+
     }
 
     /**
@@ -58,7 +68,7 @@ class TagController extends Controller
      */
     public function edit(Tag $tag)
     {
-        //
+        return view('admin.tags.edit', compact('tag'));
     }
 
     /**
@@ -70,7 +80,18 @@ class TagController extends Controller
      */
     public function update(Request $request, Tag $tag)
     {
-        //
+        $validation = $this->validationRules;
+        $validation['name'] = $validation['name'] . $tag->id;
+        $request->validate([$validation]);
+        if($tag->name !== $request->name) {
+            
+            $tag->slug = Str::of($request->name)->slug('-');
+        }
+        $tag->fill($request->all());
+        $tag->save();
+
+        return redirect()->route('admin.posts.index')->with('success', "{$tag->name} tag edited successfully");
+
     }
 
     /**
@@ -79,8 +100,11 @@ class TagController extends Controller
      * @param  \App\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tag $tag)
+    public function destroy(Request $request)
     {
-        //
+        $tag = Tag::find($request->id);
+        $tag->delete();
+        return redirect()->route('admin.posts.index')->with('success', "The tag {$tag->name} has been successfully deleted");
+
     }
 }

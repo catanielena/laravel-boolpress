@@ -39,11 +39,14 @@
                         <li class="nav-item">
                             <a class="nav-link"  href="{{ route('admin.posts.create')}}">New post</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item ml-4">
                             <a class="nav-link"  href="{{ route('admin.categories.index')}}">Categories</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link"  href="{{ route('admin.categories.create')}}">New category</a>
+                        </li>
+                        <li class="nav-item ml-4">
+                            <a class="nav-link"  href="{{ route('admin.tags.create')}}">New Tag</a>
                         </li>
                     </ul>
 
