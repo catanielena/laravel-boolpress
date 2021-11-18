@@ -57,8 +57,20 @@
                             <div class="form-group col-md-6">
                                 <label for="author_lastName">Lastname</label>
                                 <input type="text" class="form-control" id="author_lastName" placeholder="Lastname" name="author_lastName" value="{{old('author_lastName')}}">
-                                @error('author_firstName')
+                                @error('author_lastName')
                                     <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <p>Tags</p>
+                                @foreach ($tags as $tag)    
+                                <div class="form-check form-check-inline col-2">
+                                    <input {{in_array($tag['id'], old('tags', [])) ? 'checked' : null}} class="form-check-input" type="checkbox" id="tag-{{$tag->id}}" value="{{$tag->id}}" name="tags[]">
+                                    <label class="form-check-label" for="tag-{{$tag->id}}">{{$tag->name}}</label>
+                                </div>
+                                @endforeach
+                                @error('tags')
+                                  <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>

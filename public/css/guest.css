@@ -83,17 +83,16 @@ main aside {
   width: 30%;
   top: 5rem;
 }
-main aside p, main aside a {
+main aside p {
   font-size: 1rem;
 }
 main aside .archives, main aside .elsewhere {
   text-align: right;
 }
-main aside .archives {
-  font-size: 1.5rem;
-}
 main aside a {
   text-decoration: underline;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 main aside a:hover {
   color: #fff;

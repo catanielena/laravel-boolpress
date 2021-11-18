@@ -28,6 +28,7 @@
                             <th scope="col">Author</th>
                             <th scope="col">Image</th>
                             <th scope="col">Category</th>
+                            <th scope="col">Tags</th>
                             <th scope="col">Action</th>
                           </tr>
                         </thead>
@@ -41,6 +42,11 @@
                               <td>{{$post->author_lastName}} {{$post->author_firstName}}</td>
                               <td class="text-break">{{$post->image}}</td>
                               <td>{{$post['category']['name'] ?? ''}}</td>
+                              <td>
+                                @foreach ($post['tags'] as $tag)
+                                    <button type="button" class="btn btn-sm btn-outline-primary m-1">{{$tag->name}}</button>
+                                @endforeach
+                              </td>
                               <td class="d-flex">
                                     <a href="{{route('admin.posts.show', $post->id)}}" class="ml-1">
                                         <button type="button" class="btn btn-light">View</button>

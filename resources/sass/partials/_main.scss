@@ -21,19 +21,17 @@ main {
         right: 0;
         width: 30%;
         top: 5rem;
-        p, a {
+        p {
             font-size: 1rem;
         }
         .archives, .elsewhere {
             text-align: right;
         }
-        .archives {
-            font-size: 1.5rem;
-
-        }
         
         a {
             text-decoration: underline;
+            font-size: 1rem;
+            line-height: 1.5rem;
 
             &:hover {
                 color: #fff;

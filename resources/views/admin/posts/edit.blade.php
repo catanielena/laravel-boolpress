@@ -18,7 +18,11 @@
                                 <select class="custom-select" id="category_id" name="category_id">
                                     <option value="" disabled>--Choose the category-- </option>
                                     @foreach ($categories as $category)
-                                    <option {{old('category_id')!== null && old('category_id') == $category->id || isset($post['category']) && $post['category']['id'] == $category->id ? 'selected' : null}} value="{{$category->id}}">{{$category->name}}</option>
+                                    @if ($errors->any())
+                                    <option {{old('category_id') == $category->id ? 'selected' : null}} value="{{$category->id}}">{{$category->name}}</option>
+                                    @else
+                                    <option {{isset($post['category']) && $post['category']['id'] == $category->id ? 'selected' : null}} value="{{$category->id}}">{{$category->name}}</option>
+                                    @endif
                                     @endforeach
                                 </select>
                             </div>
@@ -63,6 +67,22 @@
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
+                        </div>
+                        <div class="form-group">
+                            <p>Tags</p>
+                            @foreach ($tags as $tag)    
+                            <div class="form-check form-check-inline col-2">
+                                @if ($errors->any())
+                                <input {{in_array($tag['id'], old('tags', [])) ? 'checked' : null}} class="form-check-input" type="checkbox" id="tag-{{$tag->id}}" value="{{$tag->id}}" name="tags[]">
+                                @else
+                                <input {{$post['tags']->contains($tag->id) ? 'checked' : null}} class="form-check-input" type="checkbox" id="tag-{{$tag->id}}" value="{{$tag->id}}" name="tags[]">
+                                @endif
+                                <label class="form-check-label" for="tag-{{$tag->id}}">{{$tag->name}}</label>
+                            </div>
+                            @endforeach
+                            @error('tags')
+                              <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <button type="submit" class="btn btn-primary">Edit</button>
                       </form>

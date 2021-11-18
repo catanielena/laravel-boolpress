@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Category;
+use App\Tag;
 use Illuminate\Support\Str;
 
 class PostController extends Controller
@@ -17,7 +18,8 @@ class PostController extends Controller
         'author_firstName' => 'required | max:50',
         'author_firstName' => 'required | max:50',
         'image' => 'required | max:255',
-        'category_id' => 'nullable | exists:App\Category,id'
+        'category_id' => 'nullable | exists:App\Category,id',
+        'tags' => 'exists:App\Tag,id'
     ];
     /**
      * Display a listing of the resource.
@@ -39,7 +41,8 @@ class PostController extends Controller
     {
 
         $categories = Category::all();
-        return view('admin.posts.create', compact('categories'));
+        $tags = Tag::all();
+        return view('admin.posts.create', compact('categories', 'tags'));
     }
 
     /**
@@ -55,6 +58,7 @@ class PostController extends Controller
         $newPost->fill($request->all());
         $newPost->slug = $this->getSlug($request->title);
         $newPost->save();
+        $newPost->tags()->attach($request['tags']);
         return redirect()->route('admin.posts.index')->with('success','Post created successfully');
     }
 
@@ -78,8 +82,9 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         $categories = Category::all();
+        $tags = Tag::all();
 
-        return view('admin.posts.edit', compact('post', 'categories'));
+        return view('admin.posts.edit', compact('post', 'categories', 'tags'));
     }
 
     /**
@@ -99,6 +104,7 @@ class PostController extends Controller
         }
         $post->fill($request->all());
         $post->save();
+        $post->tags()->sync($request['tags']);
         return redirect()->route('admin.posts.index')->with('success', 'The post has been successfully updated');
     }
 
