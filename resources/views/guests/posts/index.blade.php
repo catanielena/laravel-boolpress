@@ -14,7 +14,7 @@
                 <div class="item__card">
                     @if ($post['category'])    
                     <div class="card__category">
-                        <a class="category__link" href="#">
+                        <a class="category__link" href="{{route('categories.show', $post['category']->slug)}}">
                             ( {{$post['category']['name']}} )
                         </a>
                     </div>
