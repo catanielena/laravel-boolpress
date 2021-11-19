@@ -25,7 +25,6 @@
                             <th scope="col">Title</th>
                             <th scope="col">Slug</th>
                             <th scope="col">Content</th>
-                            <th scope="col">Author</th>
                             <th scope="col">Image</th>
                             <th scope="col">Category</th>
                             <th scope="col">Tags</th>
@@ -39,7 +38,6 @@
                               <td>{{$post->title}}</td>
                               <td>{{$post->slug}}</td>
                               <td class="td--content">{{$post->content}}</td>
-                              <td>{{$post->author_lastName}} {{$post->author_firstName}}</td>
                               <td class="text-break">{{$post->image}}</td>
                               <td>{{$post['category']['name'] ?? ''}}</td>
                               <td>

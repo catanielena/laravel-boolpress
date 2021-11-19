@@ -47,20 +47,6 @@
                             @enderror
                         </div>
                         <div class="form-row">
-                            <div class="form-group col-md-6">
-                              <label for="author_firstName">Name</label>
-                              <input type="text" class="form-control" id="author_firstName" placeholder="Name" name="author_firstName" value="{{old('author_firstName')}}">
-                                @error('author_firstName')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="author_lastName">Lastname</label>
-                                <input type="text" class="form-control" id="author_lastName" placeholder="Lastname" name="author_lastName" value="{{old('author_lastName')}}">
-                                @error('author_lastName')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
                             <div class="form-group">
                                 <p>Tags</p>
                                 @foreach ($tags as $tag)    

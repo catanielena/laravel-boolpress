@@ -48,7 +48,7 @@
                 <div class="card__btn">
                     <a href="{{route('posts.show', $post->slug)}}" class="_btn">more ...</a>
                 </div>
-                <span class="card__info">{{$post->created_at->diffForHumans()}} <a href="#" class="author-link">{{$post->author_firstName}} {{$post->author_lastName}}</a></span>
+                <span class="card__info">{{$post->created_at->diffForHumans()}} <a href="#" class="author-link">{{$post['user']['name'] ?? ''}}</a></span>
                 @if (count($post['tags']) > 0)    
                 <ul class="card__tags">
                     @foreach ($post['tags'] as $tag)

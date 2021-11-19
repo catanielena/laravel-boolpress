@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Category;
 use App\Tag;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class PostController extends Controller
@@ -15,8 +17,6 @@ class PostController extends Controller
     protected $validationRules = [
         'title' => 'required | max:150',
         'content' => 'required',
-        'author_firstName' => 'required | max:50',
-        'author_firstName' => 'required | max:50',
         'image' => 'required | max:255',
         'category_id' => 'nullable | exists:App\Category,id',
         'tags' => 'exists:App\Tag,id'
@@ -28,7 +28,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        // $posts = Post::all();
+        $user = Auth::user();
+        $posts = $user->posts;
         return view('admin.posts.index', compact('posts'));
     }
 
@@ -57,6 +59,7 @@ class PostController extends Controller
         $newPost = new Post();
         $newPost->fill($request->all());
         $newPost->slug = $this->getSlug($request->title);
+        $newPost->user_id = Auth::id();
         $newPost->save();
         $newPost->tags()->attach($request['tags']);
         return redirect()->route('admin.posts.index')->with('success','Post created successfully');
@@ -84,6 +87,11 @@ class PostController extends Controller
         $categories = Category::all();
         $tags = Tag::all();
 
+        if($post->user_id !== Auth::id())
+        {
+            abort('403');
+        }
+
         return view('admin.posts.edit', compact('post', 'categories', 'tags'));
     }
 
@@ -102,6 +110,7 @@ class PostController extends Controller
             
             $post->slug = $this->getSlug($request->title);
         }
+        // $post->user_id = Auth::id();
         $post->fill($request->all());
         $post->save();
         $post->tags()->sync($request['tags']);
