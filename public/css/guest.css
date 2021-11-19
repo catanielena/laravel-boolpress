@@ -248,6 +248,39 @@ main .post a {
   font-family: "Inconsolata", monospace;
   text-decoration: underline;
 }
+main .category {
+  padding: 4rem 0.5rem;
+}
+main .category h1 {
+  color: #fff;
+  mix-blend-mode: difference;
+  font-family: "Inconsolata", monospace;
+  font-size: 4rem;
+}
+main .category img {
+  width: 6.25rem;
+}
+main .category ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+main .category li {
+  margin-left: 1.3rem;
+  width: 12.5rem;
+  word-wrap: break-word;
+  position: relative;
+}
+main .category a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #fff;
+  mix-blend-mode: lighten;
+  text-shadow: 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #000, 0px 0px 2px #000;
+}
+main .category a:hover {
+  mix-blend-mode: difference;
+}
 
 @media screen and (max-width: 768px) {
   main aside {

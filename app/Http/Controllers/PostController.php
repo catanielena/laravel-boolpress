@@ -16,6 +16,7 @@ class PostController extends Controller
 
     public function show($slug) {
         $post = Post::where('slug', $slug)->first();
-        return view('guests.posts.show', compact('post'));
+        $categories = Category::all();
+        return view('guests.posts.show', compact('post',  'categories'));
     }
 }

@@ -14,9 +14,9 @@
                        <li>
                            <a href="{{route('posts.index')}}">Home</a> 
                        </li>
-                       @foreach ($categories as $category)                
+                       @foreach ($categories as $cat)                
                        <li>
-                            <a href="#">({{$category->name}})</a> 
+                            <a href="{{route('categories.show', $cat->slug)}}">({{ucfirst($cat->name)}})</a> 
                        </li>
                        @endforeach
                    </ul>
@@ -69,7 +69,7 @@
 
         <footer>
             <div class="logo__img">
-                <img src="../images/logo.png" alt="logo">
+                <img src="../../images/logo.png" alt="logo">
             </div>
             <p>This is the BOOLblog by Elena Catani</p>
         </footer>

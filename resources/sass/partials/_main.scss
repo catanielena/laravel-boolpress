@@ -198,6 +198,45 @@ main {
         }
 
     }
+
+    .category {
+        padding: 4rem .5rem;
+        
+        h1 {
+            color: #fff;
+            mix-blend-mode: difference;
+            font-family: 'Inconsolata', monospace;
+            font-size: 4rem;
+        }
+
+        img {
+            width: 6.25rem;
+        }
+
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        li {
+            margin-left: $gt;
+            width: 12.5rem;
+            word-wrap: break-word;
+            position: relative;
+        }
+        a {
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: #fff;
+            mix-blend-mode:lighten;
+            text-shadow: 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #000, 0px 0px 2px #000;
+
+            &:hover {
+                mix-blend-mode: difference;
+            }
+        }
+    }
 }
 
 @media screen and (max-width: 768px) {
