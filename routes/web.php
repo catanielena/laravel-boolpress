@@ -17,6 +17,8 @@ Route::get('/', 'PageController@index');
 Route::get('/blog', 'PostController@index')->name('posts.index');
 Route::get('/blog/posts/{slug}', 'PostController@show')->name('posts.show');
 Route::get('/blog/categories/{slug}', 'CategoryController@show')->name('categories.show');
+Route::get('/api-posts', 'PageController@apiPosts')->name('posts.api');
+
 
 //Rotte Autenticazione
 Auth::routes();
